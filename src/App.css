@@ -1,0 +1,38 @@
+.wrapper {
+    margin: 0 1.5rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1rem;
+}
+
+.title {
+    font-size: 1.5rem;
+}
+
+.main-title {
+    font-size: 2rem;
+}
+
+.title-description {
+    font-size: 1.5rem;
+}
+
+.tabs {
+    display: flex;
+    gap: 1rem;
+}
+
+.button {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.5s;
+}
+
+.button:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
