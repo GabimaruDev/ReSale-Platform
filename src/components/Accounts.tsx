@@ -1,8 +1,15 @@
-function Accounts() {
+import type { IAccounts } from "../types";
+
+interface AccountsProps {
+    accounts: IAccounts;
+}
+
+function Accounts(props: AccountsProps) {
+    const { accounts } = props;
     return (
         <>
-            <div>Касса: 0</div>
-            <div>Счёт: 0</div>
+            <div>Касса: {accounts.cash}</div>
+            <div>Счёт: {accounts.card}</div>
         </>
     );
 }

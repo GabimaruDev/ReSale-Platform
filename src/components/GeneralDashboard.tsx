@@ -1,15 +1,16 @@
 import { Box, Card } from "@mui/material";
-import type { Operation } from "../types";
+import type { IOperation } from "../types";
 import "./generalDashboard.css";
 import type { ReactNode } from "react";
 
 interface GeneralDashboardProps {
-    operations: Operation[];
+    operations: IOperation[];
 }
 
 function GeneralDashboard(props: GeneralDashboardProps): ReactNode | Promise<ReactNode> {
     const { operations } = props;
-    const totalSales = operations.filter((t) => t.type === "sale").reduce((sum) => sum + 1, 0);
+    const totalSales = operations.filter((t) => t.type === "Продажа товара");
+    const totalPurchase = operations.filter((t) => t.type === "Скупка товара");
 
     return (
         <div className="section">
@@ -17,22 +18,33 @@ function GeneralDashboard(props: GeneralDashboardProps): ReactNode | Promise<Rea
             <Box className="cards">
                 <Card className="card">
                     <p className="card__title">Приход</p>
-                    <p>{totalSales}</p>
-                    <p>{operations.filter((t) => t.type === "sale").length} транзакций</p>
+                    <div className="card__main">
+                        <p className="card__calc">{totalSales.reduce((sum) => sum, 0)} ₽</p>
+                        <p className="card__info">{totalSales.length} транзакций</p>
+                    </div>
                 </Card>
                 <Card className="card">
                     <p className="card__title">Расход</p>
-                    <p>0</p>
-                    <p>0 транзакций</p>
+                    <div className="card__main">
+                        <p className="card__calc">
+                            {totalPurchase.reduce((sum, item) => sum + item.purchaseAmount, 0)} ₽
+                        </p>
+                        <p className="card__info">{totalPurchase.length} транзакций</p>
+                    </div>
                 </Card>
                 <Card className="card">
                     <p className="card__title">Доход за сегодня</p>
-                    <p>0</p>
-                    <p>всего 0 транзакций</p>
+                    <div className="card__main">
+                        <p className="card__calc">0 ₽</p>
+                        <p className="card__info">всего 0 транзакций</p>
+                    </div>
                 </Card>
                 <Card className="card">
                     <p className="card__title">Доход за месяц</p>
-                    <p>0 меньше на 100%</p>
+                    <div className="card__main">
+                        <p className="card__calc">0 ₽</p>
+                        <p className="card__info">меньше на 100%</p>
+                    </div>
                 </Card>
             </Box>
         </div>

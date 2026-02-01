@@ -1,4 +1,10 @@
-.operation-title {
+.operations {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.operations__title {
     display: flex;
     align-items: center;
     gap: 1rem;

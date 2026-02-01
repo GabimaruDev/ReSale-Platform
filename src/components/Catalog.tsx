@@ -1,7 +1,7 @@
 function Catalog() {
     return (
         <>
-            <div>Каталог пуст.</div>
+            <div>Каталог временно не работает.</div>
         </>
     );
 }
